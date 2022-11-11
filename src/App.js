@@ -11,7 +11,7 @@ const App = () => {
     fetchData();
   }, []);
   return <>
-    <h1>I am fethcing some fake todos data's</h1>
+    <h1>I am fethcing some todos data's</h1>
 </>;
 };
 
