@@ -11,7 +11,9 @@ const App = () => {
     fetchData();
   }, []);
   return <>
-    <h1>I am fethcing some todos data's</h1>
+    <h1>I am fetching some todos data's</h1>
+    <h2>{data.title}</h2>
+    <h2>{data.completed}</h2>
 </>;
 };
 
