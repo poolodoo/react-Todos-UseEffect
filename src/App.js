@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from "react";
+//components
+import ToDoList from "./ToDoList";
 
 const App = () => {
   const [data, setData] = useState("");
-  const fetchData = async () => {
-    const api = await fetch("https://jsonplaceholder.typicode.com/todos/");
-    setData(await api.json());
+  const [ toDoList, setToDoList ] = useState(data);
+  const fetchData = () => {
+    fetch("https://jsonplaceholder.typicode.com/todos/")
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        setTodos(data)
+        setData(data)
+        setToDoList(data)
+      })
   };
-  console.log(data);
+
   useEffect(() => {
     fetchData();
   }, []);
+
   return <>
     <h1>I am fetching some todos data's</h1>
-    <h2>{data.title}</h2>
-    <h2>{data.completed}</h2>
+    return (
+   <div className="App">
+     <ToDoList toDoList={toDoList}/>
+   </div>
+ );
 </>;
 };
 
